@@ -1,0 +1,54 @@
+/**
+ * Name: Zahir Cooper
+ * Date: 03/07/23
+ * Description:  A program that reads a file named input.txt and writes a file that contains the same contents, but is named output.txt.
+ * @author zahircooper
+ */
+package mypackage;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+
+
+public class FileCopy {
+
+	public static void main(String[] args) {
+
+		      // Defining the input and output file names
+	    String inputFile = "input.txt";
+	    String outputFile = "output.txt";
+	    
+	    try {
+	        // Creating the file readers and writers
+	        FileReader fReader = new FileReader(inputFile);
+	        BufferedReader bReader = new BufferedReader(fReader);
+
+	        FileWriter fWriter = new FileWriter(outputFile);
+	        BufferedWriter bWriter = new BufferedWriter(fWriter);
+
+	        // Elect to read and write file line by line
+	        String line;
+	        while ((line = bReader.readLine()) != null) {
+	            bWriter.write(line);
+	            bWriter.newLine();
+	        }
+
+	        // Make sure to close the file streams
+	        bReader.close();
+	        bWriter.close();
+
+	        System.out.println("File copied successfully.");
+		      // Checking for any error reading from the input file or writing to the output file.
+	    } catch (IOException e) {
+	        System.out.println(" Error ");
+	        e.printStackTrace();
+	    }
+		
+		
+	}
+
+}
